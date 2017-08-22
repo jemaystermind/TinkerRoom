@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+  compileSdkVersion 26
+  buildToolsVersion "26.0.1"
+
+  defaultConfig {
+    applicationId "com.jemaystermind.tinkerroom"
+
+    minSdkVersion 21
+    targetSdkVersion 26
+
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+}
+
+final ARCH_COMPONENTS = "1.0.0-alpha9"
+final RX_JAVA_VERSION = '2.1.2'
+final RX_ANDROID_VERSION = '2.0.1'
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+  implementation 'com.android.support:appcompat-v7:26.0.1'
+  implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+  implementation "android.arch.persistence.room:runtime:${ARCH_COMPONENTS}"
+  implementation "android.arch.persistence.room:rxjava2:${ARCH_COMPONENTS}"
+  kapt "android.arch.persistence.room:compiler:${ARCH_COMPONENTS}"
+
+  implementation "android.arch.lifecycle:runtime:${ARCH_COMPONENTS}"
+  implementation "android.arch.lifecycle:extensions:${ARCH_COMPONENTS}"
+  kapt "android.arch.lifecycle:compiler:${ARCH_COMPONENTS}"
+
+  implementation "io.reactivex.rxjava2:rxjava:${RX_JAVA_VERSION}"
+  implementation "io.reactivex.rxjava2:rxandroid:${RX_ANDROID_VERSION}"
+
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'com.android.support.test:runner:1.0.0'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
+}
