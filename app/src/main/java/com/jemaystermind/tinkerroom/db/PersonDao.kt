@@ -16,6 +16,9 @@ import io.reactivex.Flowable
 @Dao
 interface PersonDao {
 
+  @Query("SELECT * FROM persons where uid = :id")
+  fun getPersonById(id: Long): LiveData<Person>
+
   @Query("SELECT * FROM persons")
   fun getAllPeople(): Flowable<List<Person>>
 

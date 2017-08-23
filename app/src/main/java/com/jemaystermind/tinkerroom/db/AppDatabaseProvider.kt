@@ -9,6 +9,9 @@ import android.content.Context
 object AppDatabaseProvider {
   private lateinit var database: AppDatabase
 
+  /**
+   * This method should be called only once. Preferably on Application's onCreate() method.
+   */
   fun init(context: Context) {
     val applicationContext = context.applicationContext
     database = Room.databaseBuilder(applicationContext, AppDatabase::class.java,

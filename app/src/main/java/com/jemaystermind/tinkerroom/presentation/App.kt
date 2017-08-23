@@ -4,7 +4,7 @@
  * This file is subject to the terms and conditions defined in
  * file 'LICENSE.txt', which is part of this source code package.
  */
-package com.jemaystermind.tinkerroom
+package com.jemaystermind.tinkerroom.presentation
 
 import android.app.Application
 import com.jemaystermind.tinkerroom.db.AppDatabaseProvider
